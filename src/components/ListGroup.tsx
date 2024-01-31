@@ -1,12 +1,12 @@
 import { Fragment, useState } from "react";
 
-interface Props{
-    items: string[];
-    heading:string;
+interface Props {
+  items: string[];
+  heading: string;
+  onSelectItem: (item: string) => void;
 }
 
-function ListGroup({items, heading}:Props) {
-
+function ListGroup({ items, heading, onSelectItem }: Props) {
   const handleClick = (event: MouseEvent) => console.log(event);
   //   let selectedIndex = 0;
   const [selectedIndex, setSelectedIndex] = useState(-1);
