@@ -1,8 +1,8 @@
-import React from "react";
 
 interface Props {
   children: string;
-  color: string;
+//   color: string;
+  color?: 'primary' | 'secondary' | 'info' | 'danger' | 'success' | 'warning';
   onClick: (e: any) => void;
 }
 const Button = ({ children, color, onClick }: Props) => {
