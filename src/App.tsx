@@ -1,6 +1,6 @@
+import { useState } from "react";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
-import ListGroup from "./components/ListGroup";
 
 function App() {
   const items: any[] = [
@@ -15,18 +15,36 @@ function App() {
     console.log(item);
   };
 
-  const onBtnClick = (evt:MouseEvent)=>{
-    console.log('evt',evt);
-  }
+  const onBtnClick = (evt: MouseEvent) => {
+    console.log("evt", evt);
+  };
 
+  const [alertVisible, setAlertVisibility] = useState(false);
+
+  const toggleAlert = () => {
+    setAlertVisibility((status) => !status);
+  };
   return (
     <div>
-      <Button color="primary" onClick={onBtnClick} >primary</Button>
-      <Button color="secondary" onClick={onBtnClick} >secondary</Button>
-      <Button color="info" onClick={onBtnClick} >info</Button>
-      <Button color="danger" onClick={onBtnClick} >danger</Button>
-      <Button color="success" onClick={onBtnClick} >success</Button>
-      <Button color="warning" onClick={onBtnClick} >warning</Button>
+      {alertVisible && <Alert children={"new alert"} closeClicked={toggleAlert}  ></Alert>}
+      <Button color="primary" onClick={toggleAlert}>
+        primary
+      </Button>
+      <Button color="secondary" onClick={toggleAlert}>
+        secondary
+      </Button>
+      <Button color="info" onClick={toggleAlert}>
+        info
+      </Button>
+      <Button color="danger" onClick={toggleAlert}>
+        danger
+      </Button>
+      <Button color="success" onClick={toggleAlert}>
+        success
+      </Button>
+      <Button color="warning" onClick={toggleAlert}>
+        warning
+      </Button>
       {/* <Alert>
         Hello <span>World</span>
       </Alert> */}
